@@ -1,9 +1,9 @@
-const Listing = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\listing.js");
+const Listing = require("../models/listing.js");
 
 
 module.exports.index = async (req,res) =>{
     const allListings = await Listing.find({});   //result will be stored in allListings variable
-    res.render("C:\\Users\\aryag\\MAJORPROJECT\\views\\listings\\index.ejs", {allListings});
+    res.render("../views/listings/index.ejs", {allListings});
 };
 
 module.exports.renderNewForm = (req,res) => {
