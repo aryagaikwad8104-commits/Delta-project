@@ -1,0 +1,151 @@
+.body{
+    font-family: "plus jakarta Sans",sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-airbnb{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+.fa-beat{
+    color: #fe424d;
+    font-size: 1rem;
+    
+}
+
+/*FOOTER*/
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+   
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+     align-items:space-evenly ;
+
+}
+
+.f-info-socials{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+     align-items:space-evenly ;
+     font-size: 1.4rem;
+ 
+     
+     
+}
+.f-info-socials i{
+    margin-right: 0.5rem;
+}
+.fa-facebook{
+    color: #1877F2;
+}
+.fa-twitter{
+    color: #1DA1F2;
+}
+.fa-instagram{
+    background: linear-gradient( #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d) ;
+}
+.fa-linkedin{
+    color: #0077B5;
+}
+.fa-youtube{
+    color: #FF0000;
+}
+
+.f-info{
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:space-evenly ;
+}
+.fa-wanderLust{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    flex-wrap: wrap;
+    
+
+}
+.card-body{
+    padding: 0 !important;
+    box-shadow: 2rem #222222 !important;
+}
+
+.card-text p{
+    font: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay{
+   opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+.add-btn{
+     background-color: #fe424d !important;
+     border: none !important;
+}
+.edit-btn{
+    background-color: #fe424d !important;
+     border: none !important;
+     border-radius: 3px;
+}
+
+/* Show Page */
+
+.show-img{
+    height: 30vh;
+    flex-wrap: wrap !important;
+    object-fit: cover !important;
+
+}
+.row{
+    justify-content: center;
+}
+.delete-btn{
+     background-color: #222222 !important;
+     border: none !important;
+     color: white;
+      border-radius: 3px;
+}
