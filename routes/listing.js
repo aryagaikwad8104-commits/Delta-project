@@ -5,10 +5,10 @@ const router = express.Router();
 
 // Change the path for wrapAsync to go up one level (..) then into utils
 const wrapAsync = require("../utils/wrapAsync.js"); 
-const Listing = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\listing.js");
+const Listing = require("../models/listing.js");
 const {isLoggedIn,isOwner,validateListing} = require("C:\\Users\\aryag\\MAJORPROJECT\\middleware.js");
 
-const listingController = require("C:\\Users\\aryag\\MAJORPROJECT\\controllers\\listings.js");
+const listingController = require("../controllers/listings.js");
 const multer  = require('multer');
 const {storage} = require("C:\\Users\\aryag\\MAJORPROJECT\\cloudConfig.js");
 const upload = multer({ storage });
