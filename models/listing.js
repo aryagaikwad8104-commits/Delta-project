@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const reviews = require("./reviews");
 const { ref } = require("joi");
 const Schema = mongoose.Schema;
-const Review = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\reviews.js");
+const Review = require("../models/reviews.js");
 
 const listingSchema = new Schema({
     title :{
