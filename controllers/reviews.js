@@ -1,5 +1,5 @@
-const Listing = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\listing.js");
-const Review = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\reviews.js");
+const Listing = require("../models/listing.js");
+const Review = require("../models/reviews.js");
 
 module.exports.createReview = async(req,res) => {
         console.log(req.params.id);

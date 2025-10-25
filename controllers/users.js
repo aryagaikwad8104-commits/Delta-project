@@ -1,7 +1,7 @@
-const User = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\user.js");
+const User = require("../models/user.js");
 
 module.exports.renderSignupForm = (req,res) => {
-    res.render("C:\\Users\\aryag\\MAJORPROJECT\\views\\users\\signup.ejs");
+    res.render("../views/users/signup.ejs");
 };
 
 module.exports.signup = async (req,res) => {
