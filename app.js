@@ -1,7 +1,7 @@
 //app.js
 if(process.env.NODE_ENV != "production"){
     // Never Upload dotenv when deploying or posting on git& gihub As it stores are imp credentials
-require('dotenv').config();   
+    require('dotenv').config();  
 }
 
 const express = require("express");
@@ -10,19 +10,21 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError = require("C:\\Users\\aryag\\MAJORPROJECT\\utils\\ExpressError.js");
+// FIX 1: Changed to relative path
+const ExpressError = require("./utils/ExpressError.js"); 
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\user.js");
+// FIX 2: Changed to relative path
+const User = require("./models/user.js"); 
 
 
-
-const listingRouter = require("C:\\Users\\aryag\\MAJORPROJECT\\routes\\listing.js");
-const reviewRouter= require("C:\\Users\\aryag\\MAJORPROJECT\\routes\\review.js");
-const userRouter = require("C:\\Users\\aryag\\MAJORPROJECT\\routes\\user.js");
+// FIX 3, 4, 5: Changed to relative paths for routers
+const listingRouter = require("./routes/listing.js");
+const reviewRouter= require("./routes/review.js");
+const userRouter = require("./routes/user.js");
 
 
 const dbUrl = process.env.ATLASDB_URL;
@@ -50,13 +52,13 @@ app.use(express.static(path.join(__dirname,"/public")));
 
 
 const store = MongoStore.create({
-     mongoUrl: dbUrl,
-     crypto: {
-        secret: process.env.SECRET
-     },
-     touchAfter: 24*3600,
+      mongoUrl: dbUrl,
+      crypto: {
+         secret: process.env.SECRET
+      },
+      touchAfter: 24*3600,
 });
-store.on("error", () => {
+store.on("error", (err) => { // Added 'err' parameter here
     console.log("ERROR IN MONGO SESSION STORE",err);
 });
 
@@ -94,23 +96,13 @@ app.use((req,res,next) => {
     next();
 });
 
-// app.get("/demouser", async(req,res) => {
-//     let fakeUser = new User ({
-//         email: "student@gmail.com",
-//         username: "sigma-student"
-//     });
-
-//     let registeredUser = await User.register(fakeUser, "helloworld");
-//     res.send(registeredUser);
-// });
+// ... (Demouser code commented out) ...
 
 app.use("/listings",listingRouter );
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/", userRouter);
 
-// app.all("*", (req,res,next)=> {
-//     next( new ExpressError(404, "Page Not Found!"));
-// });
+// ... (Error handling middleware) ...
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
@@ -118,7 +110,8 @@ app.use((err, req, res, next) => {
     if (res.headersSent) {
         return next(err);
     }
-    res.status(statusCode).render("error", { message, statusCode });
+    // Assuming you have an error.ejs file in your views directory
+    res.status(statusCode).render("error", { message, statusCode }); 
 });
 
 app.listen(8080, () =>{
