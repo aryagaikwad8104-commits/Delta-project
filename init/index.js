@@ -1,8 +1,8 @@
 //index.js
 
 const mongoose = require("mongoose");
-const initData = require("C:\\Users\\aryag\\MAJORPROJECT\\init\\data.js"); 
-const Listing = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\listing.js");
+const initData = require("../init/data.js"); 
+const Listing = require("../models/listing.js");
 
 //MONGO URL
 const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderLust';
