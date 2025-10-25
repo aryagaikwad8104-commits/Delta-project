@@ -1,6 +1,6 @@
 //app.js
 if(process.env.NODE_ENV != "production"){
-    // Never Upload dotenv when deploying or posting on git& gihub As it stores are imp credentials
+    // Never Upload dotenv when deploying or posting on git& gihub As it stores are are imp credentials
     require('dotenv').config();  
 }
 
@@ -10,18 +10,15 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-// FIX 1: Changed to relative path
 const ExpressError = require("./utils/ExpressError.js"); 
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-// FIX 2: Changed to relative path
 const User = require("./models/user.js"); 
 
 
-// FIX 3, 4, 5: Changed to relative paths for routers
 const listingRouter = require("./routes/listing.js");
 const reviewRouter= require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -58,7 +55,7 @@ const store = MongoStore.create({
       },
       touchAfter: 24*3600,
 });
-store.on("error", (err) => { // Added 'err' parameter here
+store.on("error", (err) => {
     console.log("ERROR IN MONGO SESSION STORE",err);
 });
 
@@ -96,13 +93,23 @@ app.use((req,res,next) => {
     next();
 });
 
-// ... (Demouser code commented out) ...
+// app.get("/demouser", async(req,res) => {
+//     let fakeUser = new User ({
+//         email: "student@gmail.com",
+//         username: "sigma-student"
+//     });
+
+//     let registeredUser = await User.register(fakeUser, "helloworld");
+//     res.send(registeredUser);
+// });
 
 app.use("/listings",listingRouter );
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/", userRouter);
 
-// ... (Error handling middleware) ...
+// app.all("*", (req,res,next)=> {
+//     next( new ExpressError(404, "Page Not Found!"));
+// });
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
@@ -110,7 +117,6 @@ app.use((err, req, res, next) => {
     if (res.headersSent) {
         return next(err);
     }
-    // Assuming you have an error.ejs file in your views directory
     res.status(statusCode).render("error", { message, statusCode }); 
 });
 

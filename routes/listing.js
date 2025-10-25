@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const wrapAsync = require("C:\\Users\\aryag\\MAJORPROJECT\\utils\\wrapAsync.js");
+// const wrapAsync = require("C:\\Users\\aryag\\MAJORPROJECT\\utils\\wrapAsync.js");
+// routes/listing.js
+
+// Change the path for wrapAsync to go up one level (..) then into utils
+const wrapAsync = require("../utils/wrapAsync.js"); 
 const Listing = require("C:\\Users\\aryag\\MAJORPROJECT\\models\\listing.js");
 const {isLoggedIn,isOwner,validateListing} = require("C:\\Users\\aryag\\MAJORPROJECT\\middleware.js");
 
